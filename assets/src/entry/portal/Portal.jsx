@@ -2,9 +2,6 @@
 import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 
-/* Local styles */
-import './styles/portal.scss';
-
 export const Portal = ({ children }) => {
 	// Create element reference to wrap around portal content
 	const elementRef = useRef(null);

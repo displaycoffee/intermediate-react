@@ -1,9 +1,6 @@
 /* React */
 import { useState, useContext } from 'react';
 
-/* Local styles */
-import './styles/carousel.scss';
-
 /* Local components */
 import { Context } from '../../entry/context/Context';
 

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Link, useLocation } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 /* Local styles */
-import './styles/index.scss';
+import './styles/tailwind.css';
 
 /* Local components */
 import { Context } from '../context/Context';
@@ -52,16 +52,16 @@ export const IndexWrapper = () => {
 	const [breeds] = context.utils.use.breeds(animal);
 
 	return (
-		<div className="wrapper">
+		<div className="m-0 p-0" style={{ background: `url('http://pets-images.dev-apis.com/pets/wallpaperA.jpg')` }}>
 			<Router basename={context.variables.paths.base}>
 				<IndexBody />
 
 				<ErrorBoundary message={<IndexError />}>
 					<Header />
 
-					<main className="main">
-						<div className="main-layout flex-wrap">
-							<aside className="main-sidebar">
+					<main>
+						<div className="my-0 mx-auto w-11/12">
+							<aside className="p-10 mb-10 rounded-lg bg-gray-200 shadow-lg flex flex-col items-center justify-center">
 								<AdoptedPet />
 
 								<SearchParams setRequestParams={setRequestParams} animal={animal} setAnimal={setAnimal} breeds={breeds} />

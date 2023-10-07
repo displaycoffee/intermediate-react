@@ -2,9 +2,6 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-/* Local styles */
-import './styles/search-params.scss';
-
 /* Local components */
 import { Context } from '../../entry/context/Context';
 
@@ -16,7 +13,6 @@ export const SearchParams = (props) => {
 	return (
 		<div className="search-params">
 			<form
-				className="styled-bg"
 				onSubmit={(e) => {
 					e.preventDefault();
 					const formData = new FormData(e.target);
@@ -29,15 +25,16 @@ export const SearchParams = (props) => {
 					navigate('/');
 				}}
 			>
-				<label className="flex-label flex-nowrap flex-align-items-center" htmlFor="location">
+				<label htmlFor="location">
 					<span>Location:</span>
-					<input id="location" name="location" type="text" />
+					<input id="location" className="search-input" name="location" type="text" />
 				</label>
 
-				<label className="flex-label flex-nowrap flex-align-items-center" htmlFor="animal">
+				<label htmlFor="animal">
 					<span>Animal:</span>
 					<select
 						id="animal"
+						className="search-input"
 						name="animal"
 						value={animal}
 						onChange={(e) => {
@@ -53,9 +50,9 @@ export const SearchParams = (props) => {
 					</select>
 				</label>
 
-				<label className="flex-label flex-nowrap flex-align-items-center" htmlFor="breed">
+				<label htmlFor="breed">
 					<span>Breed:</span>
-					<select id="breed" disabled={breeds.length === 0} name="breed">
+					<select id="breed" className="search-input grayed-out-disabled" disabled={breeds.length === 0} name="breed">
 						<option value="">Select breed</option>
 						{breeds.map((breed) => (
 							<option key={breed}>{breed}</option>
@@ -63,7 +60,7 @@ export const SearchParams = (props) => {
 					</select>
 				</label>
 
-				<button>Submit</button>
+				<button className="block w-auto rounded px-6 py-2 mx-auto color text-white hover:opacity-50 border-none bg-orange-500">Submit</button>
 			</form>
 		</div>
 	);

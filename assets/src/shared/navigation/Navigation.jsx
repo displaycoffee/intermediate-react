@@ -2,9 +2,6 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 
-/* Local styles */
-import './styles/navigation.scss';
-
 /* Local scripts */
 import { navigation } from './scripts/navigation';
 

@@ -1,20 +1,12 @@
 /* React */
 import { Link } from 'react-router-dom';
 
-/* Local styles */
-import './styles/header.scss';
-
 export const Header = () => {
 	return (
-		<header>
+		<header className="w-full mb-10 text-center p-7 bg-gradient-to-b from-yellow-400 via-orange-500 to-red-500">
 			<h1>
-				<Link to="/">
-					<img
-						src="//static.frontendmasters.com/resources/2019-05-02-complete-intro-react-v5/image-logo.png"
-						alt="Adopt Me!"
-						title="Adopt Me!"
-						loading="lazy"
-					/>
+				<Link className="text-6xl text-white hover:text-gray-200" to="/">
+					Adopt Me!
 				</Link>
 			</h1>
 		</header>

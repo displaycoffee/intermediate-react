@@ -1,9 +1,6 @@
 /* React */
 import { useContext } from 'react';
 
-/* Local styles */
-import './styles/adopted-pet.scss';
-
 /* Local components */
 import { Context } from '../../entry/context/Context';
 

@@ -8,7 +8,7 @@ const webpPathConfig = {
 	path: path.resolve(__dirname),
 	src: {
 		js: themePath + 'src/bundle.js',
-		css: themePath + 'src/entry/index/styles/index.scss',
+		css: themePath + 'src/entry/index/styles/tailwind.css',
 	},
 	dist: {
 		js: themePath + 'dist/js/bundle.js',
@@ -48,21 +48,7 @@ const webpCommonConfig = {
 			{
 				test: /\.(scss|css)$/,
 				exclude: /(node_modules)/,
-				use: [
-					MiniCssExtractPlugin.loader,
-					{
-						loader: 'css-loader',
-						options: {
-							url: false,
-						},
-					},
-					{
-						loader: 'sass-loader',
-						options: {
-							sourceMap: true,
-						},
-					},
-				],
+				use: ['style-loader', 'css-loader', 'postcss-loader'],
 			},
 		],
 	},

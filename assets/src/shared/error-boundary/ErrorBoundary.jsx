@@ -2,9 +2,6 @@
 /* Note: mostly code from reactjs.org/docs/error-boundaries.html */
 import { Component } from 'react';
 
-/* Local styles */
-import './styles/error-boundary.scss';
-
 export class ErrorBoundary extends Component {
 	constructor(props) {
 		super(props);

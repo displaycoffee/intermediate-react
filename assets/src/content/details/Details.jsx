@@ -3,9 +3,6 @@ import { useState, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
-/* Local styles */
-import './styles/details.scss';
-
 /* Local components */
 import { Context } from '../../entry/context/Context';
 import { Portal } from '../../entry/portal/Portal';
