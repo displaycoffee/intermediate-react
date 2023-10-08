@@ -12,7 +12,7 @@ import { Portal } from '../../entry/portal/Portal';
 import { Loader } from '../../shared/loader/Loader';
 import { Carousel } from '../../shared/carousel/Carousel';
 
-export const Details = () => {
+const Details = () => {
 	const [showPortal, setShowPortal] = useState(false);
 	const navigate = useNavigate();
 	const context = useContext(Context);
@@ -75,3 +75,5 @@ export const Details = () => {
 		</div>
 	);
 };
+
+export default Details;
