@@ -40,7 +40,7 @@ export const Index = (props) => {
 	);
 };
 
-export const IndexWrapper = () => {
+const IndexWrapper = () => {
 	const context = useContext(Context);
 
 	// Set state for query params and animals

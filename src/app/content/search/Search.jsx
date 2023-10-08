@@ -9,7 +9,7 @@ import './styles/search.scss';
 /* Local components */
 import { Context } from '../../entry/context/Context';
 
-const Search = (props) => {
+export const Search = (props) => {
 	const { requestParams } = props;
 	const context = useContext(Context);
 
