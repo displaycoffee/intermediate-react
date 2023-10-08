@@ -1,5 +1,6 @@
 /* React */
 import React from 'react';
+import { lazy } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 
 /* Local styles */
@@ -8,9 +9,9 @@ import './styles/navigation.scss';
 /* Local scripts */
 import { navigation } from './scripts/navigation';
 
-/* Local components */
-import { Search } from '../../content/search/Search';
-import { Details } from '../../content/details/Details';
+/* Local components (lazy loaded) */
+const Search = lazy(() => import('../../content/search/Search'));
+const Details = lazy(() => import('../../content/details/Details'));
 
 export const Navigation = () => {
 	return navigation && navigation.length != 0 ? (

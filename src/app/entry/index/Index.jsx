@@ -1,5 +1,5 @@
 /* React */
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext, Suspense } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
@@ -13,6 +13,7 @@ import { AdoptedPet } from '../../sidebar/adopted-pet/AdoptedPet';
 import { SearchParams } from '../../sidebar/search-params/SearchParams';
 import { NavigationRoutes } from '../../shared/navigation/Navigation';
 import { ErrorBoundary } from '../../shared/error-boundary/ErrorBoundary';
+import { Loader } from '../../shared/loader/Loader';
 
 /* Query client for pet api */
 const queryClient = new QueryClient({
@@ -30,9 +31,11 @@ export const Index = (props) => {
 
 	return (
 		<QueryClientProvider client={queryClient}>
-			<Context.Provider value={{ ...props, adoptedPet: adoptedPet }}>
-				<IndexWrapper />
-			</Context.Provider>
+			<Suspense fallback={<Loader />}>
+				<Context.Provider value={{ ...props, adoptedPet: adoptedPet }}>
+					<IndexWrapper />
+				</Context.Provider>
+			</Suspense>
 		</QueryClientProvider>
 	);
 };

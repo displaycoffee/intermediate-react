@@ -1,7 +1,0 @@
-.DS_Store
-.env
-.husky
-.vscode/
-coverage/
-node_modules/
-assets/dist/*
