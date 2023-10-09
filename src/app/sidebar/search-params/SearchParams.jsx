@@ -1,5 +1,5 @@
 /* React */
-import { useContext } from 'react';
+import { useContext, useTransition } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 /* Local styles */
@@ -7,10 +7,12 @@ import './styles/search-params.scss';
 
 /* Local components */
 import { Context } from '../../entry/context/Context';
+import { Loader } from '../../shared/Loader/Loader';
 
 export const SearchParams = (props) => {
 	const context = useContext(Context);
 	const navigate = useNavigate();
+	const [isPending, startTransition] = useTransition();
 	const { setRequestParams, animal, setAnimal, breeds } = props;
 
 	return (
@@ -25,8 +27,10 @@ export const SearchParams = (props) => {
 						breed: formData.get('breed') ?? '',
 						location: formData.get('location') ?? '',
 					};
-					setRequestParams(obj);
-					navigate('/');
+					startTransition(() => {
+						setRequestParams(obj);
+						navigate('/');
+					});
 				}}
 			>
 				<label className="flex-label flex-nowrap flex-align-items-center" htmlFor="location">
@@ -63,7 +67,7 @@ export const SearchParams = (props) => {
 					</select>
 				</label>
 
-				<button>Submit</button>
+				{isPending ? <Loader /> : <button>Submit</button>}
 			</form>
 		</div>
 	);
