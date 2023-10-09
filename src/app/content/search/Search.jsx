@@ -1,5 +1,5 @@
 /* React */
-import { useContext } from 'react';
+import { useContext, useDeferredValue, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
@@ -16,6 +16,15 @@ export const Search = (props) => {
 	// Use query to get and show results
 	const results = useQuery(['search', requestParams], context.utils.fetch.search);
 	const pets = results?.data?.pets ?? [];
+	const deferredPets = useDeferredValue(pets);
+	const renderedPets = useMemo(() => <SearchResults pets={deferredPets} />, [deferredPets]);
+
+	return renderedPets;
+};
+
+const SearchResults = (props) => {
+	const { pets } = props;
+	const context = useContext(Context);
 
 	// Set default hero image
 	let hero = context.variables.images.default;
@@ -54,5 +63,3 @@ export const Search = (props) => {
 		</div>
 	);
 };
-
-export default Search;
