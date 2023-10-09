@@ -5,11 +5,14 @@
 	"main": "index.js",
 	"type": "module",
 	"scripts": {
-		"build": "vite build",
+		"build:client": "vite build --outDir ../dist/client",
+		"build:server": "vite build --outDir ../dist/server --ssr Server.jsx",
+		"build": "npm run build:client && npm run build:server",
 		"dev": "vite --host",
-		"format": "prettier --write \"assets/src/**/*.{js,jsx,ts,tsx}\"",
-		"lint": "eslint \"./assets/src/**/*.{js,jsx,ts,tsx}\" --quiet",
-		"preview": "vite preview"
+		"format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
+		"lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet",
+		"preview": "vite preview",
+		"start": "node server.js"
 	},
 	"keywords": [],
 	"author": "displaycoffee",
@@ -27,6 +30,7 @@
 	},
 	"dependencies": {
 		"@tanstack/react-query": "^4.35.3",
+		"express": "^4.18.2",
 		"react": "^18.2.0",
 		"react-cookie": "^6.1.1",
 		"react-dom": "^18.2.0",
